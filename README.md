@@ -85,10 +85,10 @@ See `config/eye4web.siteconfig.global.php.dist` for configurable values
 ### Readers
 The modules supports many different readers, by deault it uses `DoctrineORMReader`
 #### DoctrineORM
-This reader reads config values from your database. This module is setup to use DoctrineORM by default, so all you have to do is
+This reader reads config values from your database. This module is setup to use DoctrineORM by default, so all you have to do is  
 1. Create schema
     * Use the doctrine script: `php ./vendor/bin/doctrine-module orm:schema-tool:update --force` or
-    * Create the table yourself, see `data/sql` folder for schema
+    * Create the table yourself, see `data/sql` folder for schema  
 2. Add your config values to the database. You only have to fill `key` and `value`, the rest of the fields are just convenience fields
 #### Files
 This module uses `Zend\Config` to read config from files. It can read config from the following file types:
@@ -104,7 +104,7 @@ To read config from a file, all you have to do is:
 _You can read config from a single file, but you can also read from multiple files, just use an array of file names instead of a single string_    
 
 #### Create-your-own
-It is very easy to create your own reader, just follow these steps:
+It is very easy to create your own reader, just follow these steps: 
 1. Create your reader. It must implement `Eye4web\SiteConfig\Reader\ReaderInterface`  
 2. Add your reader to the service-manager  
 3. Edit `eye4web.siteconfig.global.php` and set the name of your reader  
