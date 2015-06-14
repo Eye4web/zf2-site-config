@@ -63,9 +63,22 @@ To get a config value in a controller: `$this->siteConfig($configKey, $default)`
 `$default` is optional
 ### Any file from service-manager
 This module comes with an initializer, so to get the `SiteConfigService` into a file, all you have to do is
-1. Make your file implement `Eye4web\SiteConfig\Service\SiteConfigAwareInterface`
-2. Use the trait `Eye4web\SiteConfig\Service\SiteConfigAwareTrait`
-3. Now you can do `$this->getSiteConfigService()->get($configKey, $default)`, `$default` is optional
+
++ Make your file implement `Eye4web\SiteConfig\Service\SiteConfigAwareInterface`
++ Use the trait `Eye4web\SiteConfig\Service\SiteConfigAwareTrait`
+
+```php
+namespace YourModule\Service;
+
+use Eye4web\SiteConfig\Service\SiteConfigAwareTrait;
+
+class YourAwesomeService
+{
+    use SiteConfigAwareTrait;
+}
+```
+
++ Now you can do `$this->getSiteConfigService()->get($configKey, $default)`, `$default` is optional
 
 ## Configuration
 See `config/eye4web.siteconfig.global.php.dist` for configurable values
