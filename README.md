@@ -2,6 +2,9 @@
 [![Build Status](https://travis-ci.org/Eye4web/zf2-site-config.svg)](https://travis-ci.org/Eye4web/zf2-site-config)
 [![Code Climate](https://codeclimate.com/github/Eye4web/zf2-site-config/badges/gpa.svg)](https://codeclimate.com/github/Eye4web/zf2-site-config)
 [![Test Coverage](https://codeclimate.com/github/Eye4web/zf2-site-config/badges/coverage.svg)](https://codeclimate.com/github/Eye4web/zf2-site-config/coverage)
+[![Latest Stable Version](https://poser.pugx.org/eye4web/zf2-site-config/v/stable)](https://packagist.org/packages/eye4web/zf2-site-config)
+[![License](https://poser.pugx.org/eye4web/zf2-site-config/license)](https://packagist.org/packages/eye4web/zf2-site-config)
+[![Total Downloads](https://poser.pugx.org/eye4web/zf2-site-config/downloads)](https://packagist.org/packages/eye4web/zf2-site-config)
 
 ## Introduction
 This modules allows you to easily get site config in all of your files. 
