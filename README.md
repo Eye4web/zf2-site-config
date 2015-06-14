@@ -105,7 +105,7 @@ _You can read config from a single file, but you can also read from multiple fil
 
 #### Create-your-own
 It is very easy to create your own reader, just follow these steps:
-1. Create your reader. It must implement `Eye4web\SiteConfig\Reader\ReaderInterface`
-2. Add your reader to the service-manager
-3. Edit `eye4web.siteconfig.global.php` and set the name of your reader
-4. Make a pull-request so others can benefit from your reader ;)
+1. Create your reader. It must implement `Eye4web\SiteConfig\Reader\ReaderInterface` 
+2. Add your reader to the service-manager 
+3. Edit `eye4web.siteconfig.global.php` and set the name of your reader 
+4. Make a pull-request so others can benefit from your reader ;) 
