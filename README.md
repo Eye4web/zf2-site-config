@@ -1,4 +1,8 @@
 # Eye4web\SiteConfig
+[![Build Status](https://travis-ci.org/Eye4web/zf2-site-config.svg)](https://travis-ci.org/Eye4web/zf2-site-config)
+[![Code Climate](https://codeclimate.com/github/Eye4web/zf2-site-config/badges/gpa.svg)](https://codeclimate.com/github/Eye4web/zf2-site-config)
+[![Test Coverage](https://codeclimate.com/github/Eye4web/zf2-site-config/badges/coverage.svg)](https://codeclimate.com/github/Eye4web/zf2-site-config/coverage)
+
 ## Introduction
 This modules allows you to easily get site config in all of your files. 
 The module can, out-of-the-box, read config values from the following:
