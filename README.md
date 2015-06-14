@@ -49,7 +49,7 @@ _Note: This module does not help you write the config, you have to take care of 
     );
     ```
 
-4. Copy `config/eye4web.siteconfig.global.php.dist` to `config/autoload/e4w.zfcuser.redirecturl.global.php`
+4. Copy `config/eye4web.siteconfig.global.php.dist` to `config/autoload/eye4web.siteconfig.global.php`
 
 5. Edit the config to fit your needs
 
