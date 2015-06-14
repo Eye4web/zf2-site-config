@@ -86,8 +86,8 @@ See `config/eye4web.siteconfig.global.php.dist` for configurable values
 The modules supports many different readers, by deault it uses `DoctrineORMReader`
 #### DoctrineORM
 This reader reads config values from your database. This module is setup to use DoctrineORM by default, so all you have to do is  
-1. Create schema
-    * Use the doctrine script: `php ./vendor/bin/doctrine-module orm:schema-tool:update --force` or
+1. Create schema  
+    * Use the doctrine script: `php ./vendor/bin/doctrine-module orm:schema-tool:update --force` or  
     * Create the table yourself, see `data/sql` folder for schema  
 2. Add your config values to the database. You only have to fill `key` and `value`, the rest of the fields are just convenience fields
 #### Files
