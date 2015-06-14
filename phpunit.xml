@@ -1,0 +1,24 @@
+<phpunit bootstrap="test/Bootstrap.php" colors="true">
+    <testsuites>
+        <testsuite name="Eye4web SiteConfig">
+            <directory>./test</directory>
+        </testsuite>
+    </testsuites>
+
+    <filter>
+        <whitelist addUncoveredFilesFromWhitelist="true">
+            <directory suffix=".php">./src</directory>
+            <exclude>
+                <directory suffix=".php">./config</directory>
+                <directory suffix=".php">./src/Eye4web/SiteConfig/Entity</directory>
+                <file>./src/Eye4web/SiteConfig/Module.php</file>
+                <file>./src/Eye4web/SiteConfig/Config/ConfigInterface.php</file>
+                <file>./src/Eye4web/SiteConfig/Config/Config.php</file>
+                <file>./src/Eye4web/SiteConfig/Reader/ReaderInterface.php</file>
+                <file>./src/Eye4web/SiteConfig/Options/ModuleOptionsInterface.php</file>
+                <file>./src/Eye4web/SiteConfig/Service/SiteConfigAwareInterface.php</file>
+                <file>./src/Eye4web/SiteConfig/Service/SiteConfigServiceInterface.php</file>
+            </exclude>
+        </whitelist>
+    </filter>
+</phpunit>

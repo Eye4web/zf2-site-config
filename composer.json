@@ -1,0 +1,42 @@
+{
+    "name": "eye4web/zf2-site-config",
+    "description": "Site-configuration module for Zend Framework 2",
+    "type": "library",
+    "license": "MIT",
+    "keywords": [
+        "zf2",
+        "zfc-user",
+        "zfcuser",
+        "configuration"
+    ],
+    "homepage": "https://github.com/Eye4web/ZF2-Site-Config",
+    "authors": [
+        {
+            "name": "Daniel Strøm",
+            "email": "ds@eye4web.dk"
+        }
+    ],
+    "extra": {
+        "branch-alias": {
+            "dev-master": "master-dev"
+        }
+    },
+    "require": {
+        "php": ">=5.5",
+        "zendframework/zend-config": "~2.3",
+        "zendframework/zend-servicemanager": "~2.3"
+    },
+    "autoload": {
+        "psr-0": {
+            "Eye4web\\SiteConfig": "src/"
+        }
+    },
+    "require-dev" : {
+        "phpunit/phpunit" : "4.*",
+        "squizlabs/php_codesniffer" : "1.5.*",
+        "zendframework/zend-captcha" : "~2.1",
+        "codeclimate/php-test-reporter": "dev-master",
+        "zendframework/zendframework": "~2.3",
+        "ramsey/uuid": "2.7.3"
+    }
+}
