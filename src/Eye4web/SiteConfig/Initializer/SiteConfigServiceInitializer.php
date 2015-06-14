@@ -1,4 +1,5 @@
 <?php
+
 /*
  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
@@ -20,7 +21,6 @@ namespace Eye4web\SiteConfig\Initializer;
 
 use Eye4web\SiteConfig\Service\SiteConfigAwareInterface;
 use Eye4web\SiteConfig\Service\SiteConfigService;
-use Zend\ServiceManager\AbstractPluginManager;
 use Zend\ServiceManager\InitializerInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
 

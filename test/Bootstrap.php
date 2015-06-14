@@ -1,6 +1,6 @@
 <?php
 
-namespace Eye4web\Zf2BoardTest;
+namespace Eye4web\Zf2Boardtest;
 
 use Zend\Loader\AutoloaderFactory;
 use Zend\Mvc\Service\ServiceManagerConfig;
@@ -18,10 +18,10 @@ class Bootstrap
     public static function init()
     {
         // Load the user-defined test configuration file, if it exists; otherwise, load
-        if (is_readable(__DIR__ . '/TestConfig.php')) {
-            $testConfig = include __DIR__ . '/TestConfig.php';
+        if (is_readable(__DIR__.'/TestConfig.php')) {
+            $testConfig = include __DIR__.'/TestConfig.php';
         } else {
-            $testConfig = include __DIR__ . '/TestConfig.php.dist';
+            $testConfig = include __DIR__.'/TestConfig.php.dist';
         }
 
         $zf2ModulePaths = array(dirname(dirname(__DIR__)));
@@ -32,7 +32,7 @@ class Bootstrap
             $zf2ModulePaths[] = $path;
         }
 
-        $zf2ModulePaths  = implode(PATH_SEPARATOR, $zf2ModulePaths) . PATH_SEPARATOR;
+        $zf2ModulePaths  = implode(PATH_SEPARATOR, $zf2ModulePaths).PATH_SEPARATOR;
         $zf2ModulePaths .= getenv('ZF2_MODULES_TEST_PATHS') ?:
             (defined('ZF2_MODULES_TEST_PATHS') ?
             ZF2_MODULES_TEST_PATHS : '');
@@ -63,14 +63,14 @@ class Bootstrap
     {
         $vendorPath = static::findParentPath('vendor');
 
-        if (is_readable($vendorPath . '/autoload.php')) {
-            $loader = include $vendorPath . '/autoload.php';
+        if (is_readable($vendorPath.'/autoload.php')) {
+            $loader = include $vendorPath.'/autoload.php';
         }
 
         $zf2Path = getenv('ZF2_PATH') ?:
             (defined('ZF2_PATH') ?
-            ZF2_PATH : (is_dir($vendorPath . '/ZF2/library') ?
-            $vendorPath . '/ZF2/library' : false));
+            ZF2_PATH : (is_dir($vendorPath.'/ZF2/library') ?
+            $vendorPath.'/ZF2/library' : false));
 
         if (!$zf2Path) {
             throw new RuntimeException(
@@ -79,15 +79,15 @@ class Bootstrap
         }
 
         if (isset($loader)) {
-            $loader->add('Zend', $zf2Path . '/Zend');
+            $loader->add('Zend', $zf2Path.'/Zend');
             $loader->add('Eye4web\SiteConfigTest', __DIR__);
         } else {
-            include $zf2Path . '/Zend/Loader/AutoloaderFactory.php';
+            include $zf2Path.'/Zend/Loader/AutoloaderFactory.php';
             AutoloaderFactory::factory(array(
                 'Zend\Loader\StandardAutoloader' => array(
                     'autoregister_zf' => true,
                     'namespaces' => array(
-                        __NAMESPACE__ => __DIR__ . '/' . __NAMESPACE__,
+                        __NAMESPACE__ => __DIR__.'/'.__NAMESPACE__,
                     ),
                 ),
             ));
@@ -98,7 +98,7 @@ class Bootstrap
     {
         $dir = __DIR__;
         $previousDir = '.';
-        while (!is_dir($dir . '/' . $path)) {
+        while (!is_dir($dir.'/'.$path)) {
             $dir = dirname($dir);
 
             if ($previousDir === $dir) {
@@ -107,7 +107,8 @@ class Bootstrap
 
             $previousDir = $dir;
         }
-        return $dir . '/' . $path;
+
+        return $dir.'/'.$path;
     }
 }
 

@@ -1,4 +1,5 @@
 <?php
+
 /*
  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
@@ -37,8 +38,9 @@ class SiteConfigPlugin extends AbstractPlugin
     }
 
     /**
-     * @param string $name
+     * @param string     $name
      * @param mixed|null $default
+     *
      * @return string
      */
     public function __invoke($name, $default = null)

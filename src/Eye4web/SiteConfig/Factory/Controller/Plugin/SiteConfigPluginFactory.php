@@ -1,4 +1,5 @@
 <?php
+
 /*
  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
@@ -27,11 +28,13 @@ class SiteConfigPluginFactory implements FactoryInterface
 {
     /**
      * @param ServiceLocatorInterface $serviceLocator
+     *
      * @return SiteConfigPlugin
      */
     public function createService(ServiceLocatorInterface $serviceLocator)
     {
         $siteConfigService = $serviceLocator->getServiceLocator()->get(SiteConfigService::Class);
+
         return new SiteConfigPlugin($siteConfigService);
     }
 }

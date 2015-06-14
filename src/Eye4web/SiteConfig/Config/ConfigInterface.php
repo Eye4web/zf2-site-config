@@ -1,4 +1,5 @@
 <?php
+
 /*
  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
@@ -21,8 +22,9 @@ namespace Eye4web\SiteConfig\Config;
 interface ConfigInterface
 {
     /**
-     * @param string $name
+     * @param string     $name
      * @param mixed|null $default
+     *
      * @return mixed
      */
     public function get($name, $default = null);

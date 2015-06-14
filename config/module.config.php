@@ -1,4 +1,5 @@
 <?php
+
 /*
  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
@@ -26,7 +27,7 @@ return [
 
         ],
         'initializers' => [
-            \Eye4web\SiteConfig\Initializer\SiteConfigServiceInitializer::class
+            \Eye4web\SiteConfig\Initializer\SiteConfigServiceInitializer::class,
         ],
     ],
     'view_helpers' => [
@@ -35,26 +36,26 @@ return [
         ],
         'aliases' => [
             'siteConfig' => \Eye4web\SiteConfig\View\Helper\SiteConfigHelper::class,
-        ]
+        ],
     ],
     'controller_plugins' => [
         'factories' => [
-            \Eye4web\SiteConfig\Controller\Plugin\SiteConfigPlugin::class => \Eye4web\SiteConfig\Factory\Controller\Plugin\SiteConfigPluginFactory::class
+            \Eye4web\SiteConfig\Controller\Plugin\SiteConfigPlugin::class => \Eye4web\SiteConfig\Factory\Controller\Plugin\SiteConfigPluginFactory::class,
         ],
         'aliases' => [
-            'siteConfig' => \Eye4web\SiteConfig\Controller\Plugin\SiteConfigPlugin::class
-        ]
+            'siteConfig' => \Eye4web\SiteConfig\Controller\Plugin\SiteConfigPlugin::class,
+        ],
     ],
     'doctrine' => [
         'driver' => [
             'eye4web_siteconfig_driver' => array(
                 'class' => 'Doctrine\ORM\Mapping\Driver\XmlDriver',
-                'paths' => __DIR__ . '/xml/eye4websiteconfig'
+                'paths' => __DIR__.'/xml/eye4websiteconfig',
             ),
             'orm_default' => [
                 'drivers' => [
                     'Eye4web\SiteConfig' => 'eye4web_siteconfig_driver',
-                ]
+                ],
             ],
         ],
         'migrations_configuration' => [

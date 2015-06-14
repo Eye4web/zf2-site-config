@@ -1,4 +1,5 @@
 <?php
+
 /*
  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
@@ -34,7 +35,7 @@ class DoctrineORMReader implements ReaderInterface
     private $options;
 
     /**
-     * @param ObjectManager $objectManager
+     * @param ObjectManager          $objectManager
      * @param ModuleOptionsInterface $options
      */
     public function __construct(ObjectManager $objectManager, ModuleOptionsInterface $options)

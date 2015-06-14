@@ -1,4 +1,5 @@
 <?php
+
 /*
  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
@@ -22,7 +23,6 @@ use Eye4web\SiteConfig\Config\Config;
 use Eye4web\SiteConfig\Options\ModuleOptions;
 use Eye4web\SiteConfig\Reader\ReaderInterface;
 use Zend\Config\Factory;
-use Zend\Config\Reader\ReaderInterface as ZendConfigReaderInterface;
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
 
@@ -32,12 +32,14 @@ class ConfigFactory implements FactoryInterface
 
     /**
      * @param ServiceLocatorInterface $serviceLocator
+     *
      * @return Config
+     *
      * @throws \Exception
      */
     public function createService(ServiceLocatorInterface $serviceLocator)
     {
-        /** @var ModuleOptions $config */
+        /* @var ModuleOptions $config */
         $options = $serviceLocator->get(ModuleOptions::class);
 
         $data = null;
@@ -69,8 +71,9 @@ class ConfigFactory implements FactoryInterface
     public function getConfigFactory()
     {
         if (!$this->configFactory) {
-            $this->configFactory = new Factory;
+            $this->configFactory = new Factory();
         }
+
         return $this->configFactory;
     }
 

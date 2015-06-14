@@ -1,4 +1,5 @@
 <?php
+
 /*
  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
@@ -28,6 +29,7 @@ class DoctrineORMReaderFactory implements FactoryInterface
 {
     /**
      * @param ServiceLocatorInterface $serviceLocator
+     *
      * @return DoctrineORMReader
      */
     public function createService(ServiceLocatorInterface $serviceLocator)
@@ -36,6 +38,7 @@ class DoctrineORMReaderFactory implements FactoryInterface
         $options = $serviceLocator->get(ModuleOptions::class);
 
         $reader = new DoctrineORMReader($objectManager, $options);
+
         return $reader;
     }
 }

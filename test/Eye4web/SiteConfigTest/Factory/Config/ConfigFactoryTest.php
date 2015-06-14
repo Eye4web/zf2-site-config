@@ -1,4 +1,5 @@
 <?php
+
 /*
  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
@@ -15,13 +16,13 @@
  * This software consists of voluntary contributions made by many individuals
  * and is licensed under the MIT license.
  */
+
 namespace Eye4web\SiteConfigTest\Factory\Config;
 
 use Eye4web\SiteConfig\Config\Config;
 use Eye4web\SiteConfig\Factory\Config\ConfigFactory;
 use Eye4web\SiteConfig\Options\ModuleOptions;
 use Eye4web\SiteConfig\Reader\ReaderInterface;
-use Zend\Config\Factory;
 use Zend\Config\Factory as ZendConfigFactory;
 use Zend\ServiceManager\ServiceLocatorInterface;
 
@@ -81,7 +82,7 @@ class ConfigFactoryTest extends \PHPUnit_Framework_TestCase
             ->will($this->returnValue($readerClass));
 
         $serviceLocator->expects($this->at(1))
-            ->method("get")
+            ->method('get')
             ->with($readerClass)
             ->will($this->returnValue($reader));
 
@@ -122,7 +123,7 @@ class ConfigFactoryTest extends \PHPUnit_Framework_TestCase
             ->will($this->returnValue($readerClass));
 
         $serviceLocator->expects($this->at(1))
-            ->method("get")
+            ->method('get')
             ->with($readerClass)
             ->will($this->returnValue($notAReader));
 
@@ -159,7 +160,7 @@ class ConfigFactoryTest extends \PHPUnit_Framework_TestCase
             ->will($this->returnValue($readerClass));
 
         $serviceLocator->expects($this->at(1))
-            ->method("get")
+            ->method('get')
             ->with($readerClass)
             ->will($this->returnValue($reader));
 

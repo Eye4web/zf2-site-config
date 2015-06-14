@@ -1,4 +1,5 @@
 <?php
+
 /*
  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
@@ -15,17 +16,11 @@
  * This software consists of voluntary contributions made by many individuals
  * and is licensed under the MIT license.
  */
+
 namespace Eye4web\SiteConfigTest\Service;
 
-use Eye4web\SiteConfig\Config\Config;
-use Eye4web\SiteConfig\Config\ConfigInterface;
-use Eye4web\SiteConfig\Factory\Config\ConfigFactory;
-use Eye4web\SiteConfig\Options\ModuleOptions;
-use Eye4web\SiteConfig\Reader\ReaderInterface;
 use Eye4web\SiteConfig\Service\SiteConfigAwareTrait;
 use Eye4web\SiteConfig\Service\SiteConfigService;
-use Zend\Config\Factory;
-use Zend\ServiceManager\ServiceLocatorInterface;
 
 class SiteConfigAwareTraitTest extends \PHPUnit_Framework_TestCase
 {

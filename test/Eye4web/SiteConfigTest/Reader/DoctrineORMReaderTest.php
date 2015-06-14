@@ -1,4 +1,5 @@
 <?php
+
 /*
  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
@@ -15,6 +16,7 @@
  * This software consists of voluntary contributions made by many individuals
  * and is licensed under the MIT license.
  */
+
 namespace Eye4web\SiteConfigTest\Reader;
 
 use Doctrine\Common\Persistence\ObjectManager;
@@ -38,12 +40,12 @@ class DoctrineORMReaderTest extends \PHPUnit_Framework_TestCase
             ->setMethods(['findAll'])
             ->disableOriginalConstructor()
             ->getMock();
-        $entityClass = "SiteConfigEntityClass";
+        $entityClass = 'SiteConfigEntityClass';
 
         $expectedResult = [
             'keyA' => 'valueA',
             'keyB' => 'valueB',
-            'keyC' => 'valueC'
+            'keyC' => 'valueC',
         ];
 
         $dbResult = [];

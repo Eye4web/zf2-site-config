@@ -1,4 +1,5 @@
 <?php
+
 /*
  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
@@ -23,7 +24,7 @@ use Zend\Stdlib\AbstractOptions;
 class ModuleOptions extends AbstractOptions implements ModuleOptionsInterface
 {
     /**
-     * Change this if you want to use your own entity class
+     * Change this if you want to use your own entity class.
      *
      * @var string
      */
@@ -43,7 +44,7 @@ class ModuleOptions extends AbstractOptions implements ModuleOptionsInterface
     /**
      *  You can use any class implementing either of the two interfaces:
      * \Eye4web\SiteConfig\Reader\ReaderInterface
-     * \Zend\Config\Read\ReaderInterface
+     * \Zend\Config\Read\ReaderInterface.
      *
      * @var null|string|array
      */

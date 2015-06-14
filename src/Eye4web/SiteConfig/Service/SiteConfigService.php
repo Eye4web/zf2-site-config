@@ -1,4 +1,5 @@
 <?php
+
 /*
  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
@@ -36,8 +37,9 @@ class SiteConfigService implements SiteConfigServiceInterface
     }
 
     /**
-     * @param string $name
+     * @param string      $name
      * @param null|string $default
+     *
      * @return string
      */
     public function get($name, $default = null)

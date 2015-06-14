@@ -1,4 +1,5 @@
 <?php
+
 /*
  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
@@ -25,9 +26,10 @@ use Zend\ServiceManager\ServiceLocatorInterface;
 class ModuleOptionsFactory implements FactoryInterface
 {
     /**
-     * Create options
+     * Create options.
      *
-     * @param  ServiceLocatorInterface $serviceLocator
+     * @param ServiceLocatorInterface $serviceLocator
+     *
      * @return ModuleOptions
      */
     public function createService(ServiceLocatorInterface $serviceLocator)
@@ -38,6 +40,7 @@ class ModuleOptionsFactory implements FactoryInterface
             $moduleConfig = $config['eye4web']['site-config'];
         }
         $service = new ModuleOptions($moduleConfig);
+
         return $service;
     }
 }
