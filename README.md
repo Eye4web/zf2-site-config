@@ -101,7 +101,7 @@ This module uses `Zend\Config` to read config from files. It can read config fro
 To read config from a file, all you have to do is:
 1. Create your file and add your config values
 2. Edit `eye4web.siteconfig.global.php` and set the path to your config file
-_You can read config from a single file, but you can also read from multiple files, just use an array of file names instead of a single string_
+_You can read config from a single file, but you can also read from multiple files, just use an array of file names instead of a single string_    
 #### Create-your-own
 It is very easy to create your own reader, just follow these steps:
 1. Create your reader. It must implement `Eye4web\SiteConfig\Reader\ReaderInterface`
