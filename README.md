@@ -22,21 +22,13 @@ The module can, out-of-the-box, read config values from the following:
 _Note: This module does not help you write the config, you have to take care of that yourself._
 
 ## Installation
-1. Add this project composer.json:
-
-    ```json
-    "require": {
-        "eye4web/zf2-site-config": "dev-master"
-    }
-    ```
-
-2. Now tell composer to download the module by running the command:
+1. Run the followng composer command:
 
     ```bash
-    $ php composer.phar update
+    $ composer require eye4web/zf2-site-config:dev-master
     ```
 
-3. Enable it in your `application.config.php` file.
+2. Enable it in your `application.config.php` file.
 
     ```php
     <?php
@@ -49,9 +41,9 @@ _Note: This module does not help you write the config, you have to take care of 
     );
     ```
 
-4. Copy `config/eye4web.siteconfig.global.php.dist` to `config/autoload/eye4web.siteconfig.global.php`
+3. Copy `config/eye4web.siteconfig.global.php.dist` to `config/autoload/eye4web.siteconfig.global.php`
 
-5. Edit the config to fit your needs
+4. Edit the config to fit your needs
 
 ## Usage
 It is very easy to get config values, anywhere in your files.
@@ -71,8 +63,9 @@ This module comes with an initializer, so to get the `SiteConfigService` into a 
 namespace YourModule\Service;
 
 use Eye4web\SiteConfig\Service\SiteConfigAwareTrait;
+use Eye4web\SiteConfig\Service\SiteConfigAwareInterface;
 
-class YourAwesomeService
+class YourAwesomeService implements SiteConfigAwareInterface
 {
     use SiteConfigAwareTrait;
 }
