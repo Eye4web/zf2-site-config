@@ -97,8 +97,8 @@ This module uses `Zend\Config` to read config from files. It can read config fro
 * xml
 * yaml
 * javaproperties
-* php array
-To read config from a file, all you have to do is:
+* php array  
+To read config from a file, all you have to do is:  
 1. Create your file and add your config values  
 2. Edit `eye4web.siteconfig.global.php` and set the path to your config file  
 _You can read config from a single file, but you can also read from multiple files, just use an array of file names instead of a single string_    
