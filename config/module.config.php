@@ -18,17 +18,27 @@
  */
 
 return [
+    'lazy_services' => array(
+        'class_map' => array(
+            \Eye4web\SiteConfig\Service\SiteConfigService::class => \Eye4web\SiteConfig\Service\SiteConfigService::class,
+        ),
+    ),
     'service_manager' => [
         'factories' => [
             \Eye4web\SiteConfig\Config\Config::class                => \Eye4web\SiteConfig\Factory\Config\ConfigFactory::class,
             \Eye4web\SiteConfig\Options\ModuleOptions::class        => \Eye4web\SiteConfig\Factory\Options\ModuleOptionsFactory::class,
             \Eye4web\SiteConfig\Reader\DoctrineORMReader::class     => \Eye4web\SiteConfig\Factory\Reader\DoctrineORMReaderFactory::class,
             \Eye4web\SiteConfig\Service\SiteConfigService::class    => \Eye4web\SiteConfig\Factory\Service\SiteConfigServiceFactory::class,
-
+            'LazyServiceFactory' => 'Zend\ServiceManager\Proxy\LazyServiceFactoryFactory',
         ],
         'initializers' => [
             \Eye4web\SiteConfig\Initializer\SiteConfigServiceInitializer::class,
         ],
+        'delegators' => array(
+            \Eye4web\SiteConfig\Service\SiteConfigService::class => array(
+                'LazyServiceFactory'
+            ),
+        ),
     ],
     'view_helpers' => [
         'factories' => [
