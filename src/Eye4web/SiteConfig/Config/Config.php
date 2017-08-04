@@ -19,8 +19,56 @@
 
 namespace Eye4web\SiteConfig\Config;
 
+use Dflydev\DotAccessData\Data;
 use Zend\Config\Config as ZendConfig;
 
 class Config extends ZendConfig implements ConfigInterface
 {
+    protected $data;
+    protected $dotData;
+
+    /**
+     * Config constructor.
+     *
+     * @param array $array
+     */
+    public function __construct(array $array, $allowModifications = false)
+    {
+        parent::__construct($array, $allowModifications);
+        $this->dotData = new Data($array);
+    }
+
+    /**
+     * @param string $name
+     * @param null   $default
+     *
+     * @return null
+     */
+    public function get($name, $default = null)
+    {
+        if (strpos($name, '.')) {
+            if (!$this->dotData->has($name)) {
+                return $default;
+            }
+            return $this->dotData->get($name);
+        }
+
+        return parent::get($name, $default);
+    }
+
+    /**
+     * @param string $name
+     * @param mixed  $value
+     *
+     * @return void
+     */
+    public function set($name, $value)
+    {
+        if (strpos($name, '.')) {
+            $this->dotData->set($name, $value);
+            return;
+        }
+
+        parent::set($name, $value);
+    }
 }

@@ -19,6 +19,8 @@
 
 namespace Eye4web\SiteConfig\Config;
 
+use Zend\Config\Config;
+
 interface ConfigInterface
 {
     /**
@@ -30,7 +32,17 @@ interface ConfigInterface
     public function get($name, $default = null);
 
     /**
-     * @return array
+     * @param string     $name
+     * @param mixed      $value
+     *
+     * @return void
      */
-    public function toArray();
+    public function set($name, $value);
+
+    /**
+     * @param Config $merge
+     *
+     * @return Config
+     */
+    public function merge(Config $config);
 }

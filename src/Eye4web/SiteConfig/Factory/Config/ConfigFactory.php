@@ -44,28 +44,40 @@ class ConfigFactory implements FactoryInterface
 
         $data = null;
 
+        $data = new Config([], true);
         $configFiles = $options->getConfigFile();
         if ($configFiles) {
             $configFactory = $this->getConfigFactory();
             if (is_array($configFiles)) {
-                $data = $configFactory::fromFiles($configFiles);
+                $config = new Config($configFactory::fromFiles($configFiles), true);
+                $data->merge($config);
             } else {
-                $data = $configFactory::fromFile($configFiles);
+                $config = new Config($configFactory::fromFile($configFiles), true);
+                $data->merge($configFactory::fromFile($configFiles));
             }
-        } else {
-            $reader = $serviceLocator->get($options->getReaderClass());
+        }
+
+        $readerConfigClasses = [];
+        if (is_string($options->getReaderClass())) {
+            $readerConfigClasses[] = $options->getReaderClass();
+        }
+        foreach ($readerConfigClasses as $readerConfigClass) {
+            $reader = $serviceLocator->get($readerConfigClass);
             if ($reader instanceof ReaderInterface) {
-                $data = $reader->getArray();
+                $readerData = $reader->getArray();
             } else {
                 throw new \Exception('Reader must implement \Eye4web\SiteConfig\Reader\ReaderInterface');
             }
+
+            if (!is_array($readerData)) {
+                throw new \Exception('Data for Config object must be an array');
+            }
+
+            $config = new Config($readerData, true);
+            $data->merge($config);
         }
 
-        if (!is_array($data)) {
-            throw new \Exception('Data for Config object must be an array');
-        }
-
-        return new Config($data);
+        return $data;
     }
 
     public function getConfigFactory()
