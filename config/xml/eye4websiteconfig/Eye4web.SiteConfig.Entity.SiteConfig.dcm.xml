@@ -10,7 +10,7 @@
         </id>
         <field name="key" type="string" length="50"/>
         <field name="name" type="string" length="100"/>
-        <field name="value" type="string" length="255"/>
+        <field name="value" type="text"/>
         <field name="description" type="string" length="255"/>
     </entity>
 
