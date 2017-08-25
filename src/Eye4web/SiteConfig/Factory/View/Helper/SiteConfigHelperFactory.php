@@ -23,6 +23,7 @@ use Eye4web\SiteConfig\Service\SiteConfigService;
 use Eye4web\SiteConfig\View\Helper\SiteConfigHelper;
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
+use Zend\View\Helper\HelperPluginManager;
 
 class SiteConfigHelperFactory implements FactoryInterface
 {
@@ -33,7 +34,11 @@ class SiteConfigHelperFactory implements FactoryInterface
      */
     public function createService(ServiceLocatorInterface $serviceLocator)
     {
-        $siteConfigService = $serviceLocator->getServiceLocator()->get(SiteConfigService::class);
+        if ($serviceLocator instanceof HelperPluginManager) {
+            $serviceLocator = $serviceLocator->getServiceLocator();
+        }
+
+        $siteConfigService = $serviceLocator->get(SiteConfigService::class);
 
         return new SiteConfigHelper($siteConfigService);
     }
