@@ -21,8 +21,14 @@ namespace Eye4web\SiteConfig\Factory\Service;
 
 use Eye4web\SiteConfig\Config\Config;
 use Eye4web\SiteConfig\Service\SiteConfigService;
-use Zend\ServiceManager\FactoryInterface;
+use Interop\Container\ContainerInterface;
+use Zend\ServiceManager\Factory\FactoryInterface;
+use Zend\ServiceManager\FactoryInterface as LegacyFactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
+
+if (!\interface_exists(FactoryInterface::class)) {
+    \class_alias(LegacyFactoryInterface::class, FactoryInterface::class);
+}
 
 class SiteConfigServiceFactory implements FactoryInterface
 {
@@ -38,5 +44,13 @@ class SiteConfigServiceFactory implements FactoryInterface
         $service = new SiteConfigService($config);
 
         return $service;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function __invoke(ContainerInterface $serviceLocator, $requestedName, array $options = null)
+    {
+        return $this->createService($serviceLocator);
     }
 }
