@@ -21,9 +21,15 @@ namespace Eye4web\SiteConfig\Factory\View\Helper;
 
 use Eye4web\SiteConfig\Service\SiteConfigService;
 use Eye4web\SiteConfig\View\Helper\SiteConfigHelper;
-use Zend\ServiceManager\FactoryInterface;
+use Interop\Container\ContainerInterface;
+use Zend\ServiceManager\Factory\FactoryInterface;
+use Zend\ServiceManager\FactoryInterface as LegacyFactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
 use Zend\View\Helper\HelperPluginManager;
+
+if (!\interface_exists(FactoryInterface::class)) {
+    \class_alias(LegacyFactoryInterface::class, FactoryInterface::class);
+}
 
 class SiteConfigHelperFactory implements FactoryInterface
 {
@@ -41,5 +47,13 @@ class SiteConfigHelperFactory implements FactoryInterface
         $siteConfigService = $serviceLocator->get(SiteConfigService::class);
 
         return new SiteConfigHelper($siteConfigService);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function __invoke(ContainerInterface $serviceLocator, $requestedName, array $options = null)
+    {
+        return $this->createService($serviceLocator);
     }
 }

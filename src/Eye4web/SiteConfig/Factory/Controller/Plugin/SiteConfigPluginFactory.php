@@ -21,9 +21,15 @@ namespace Eye4web\SiteConfig\Factory\Controller\Plugin;
 
 use Eye4web\SiteConfig\Controller\Plugin\SiteConfigPlugin;
 use Eye4web\SiteConfig\Service\SiteConfigService;
-use Zend\Mvc\Controller\ControllerManager;
-use Zend\ServiceManager\FactoryInterface;
+use Interop\Container\ContainerInterface;
+use Zend\Mvc\Controller\PluginManager;
+use Zend\ServiceManager\Factory\FactoryInterface;
+use Zend\ServiceManager\FactoryInterface as LegacyFactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
+
+if (!\interface_exists(FactoryInterface::class)) {
+    \class_alias(LegacyFactoryInterface::class, FactoryInterface::class);
+}
 
 class SiteConfigPluginFactory implements FactoryInterface
 {
@@ -34,12 +40,20 @@ class SiteConfigPluginFactory implements FactoryInterface
      */
     public function createService(ServiceLocatorInterface $serviceLocator)
     {
-        if ($serviceLocator instanceof ControllerManager) {
+        if ($serviceLocator instanceof PluginManager) {
             $serviceLocator = $serviceLocator->getServiceLocator();
         }
 
         $siteConfigService = $serviceLocator->get(SiteConfigService::Class);
 
         return new SiteConfigPlugin($siteConfigService);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function __invoke(ContainerInterface $serviceLocator, $requestedName, array $options = null)
+    {
+        return $this->createService($serviceLocator);
     }
 }
