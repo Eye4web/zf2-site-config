@@ -21,6 +21,7 @@ namespace Eye4web\SiteConfig\Factory\Controller\Plugin;
 
 use Eye4web\SiteConfig\Controller\Plugin\SiteConfigPlugin;
 use Eye4web\SiteConfig\Service\SiteConfigService;
+use Zend\Mvc\Controller\ControllerManager;
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
 
@@ -33,7 +34,11 @@ class SiteConfigPluginFactory implements FactoryInterface
      */
     public function createService(ServiceLocatorInterface $serviceLocator)
     {
-        $siteConfigService = $serviceLocator->getServiceLocator()->get(SiteConfigService::Class);
+        if ($serviceLocator instanceof ControllerManager) {
+            $serviceLocator = $serviceLocator->getServiceLocator();
+        }
+
+        $siteConfigService = $serviceLocator->get(SiteConfigService::Class);
 
         return new SiteConfigPlugin($siteConfigService);
     }
