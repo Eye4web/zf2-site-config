@@ -22,8 +22,14 @@ namespace Eye4web\SiteConfig\Factory\Reader;
 use Doctrine\ORM\EntityManager;
 use Eye4web\SiteConfig\Options\ModuleOptions;
 use Eye4web\SiteConfig\Reader\DoctrineORMReader;
+use Interop\Container\ContainerInterface;
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
+use Zend\ServiceManager\FactoryInterface as LegacyFactoryInterface;
+
+if (!\interface_exists(FactoryInterface::class)) {
+    \class_alias(LegacyFactoryInterface::class, FactoryInterface::class);
+}
 
 class DoctrineORMReaderFactory implements FactoryInterface
 {
@@ -40,5 +46,13 @@ class DoctrineORMReaderFactory implements FactoryInterface
         $reader = new DoctrineORMReader($objectManager, $options);
 
         return $reader;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function __invoke(ContainerInterface $serviceLocator, $requestedName, array $options = null)
+    {
+        return $this->createService($serviceLocator);
     }
 }

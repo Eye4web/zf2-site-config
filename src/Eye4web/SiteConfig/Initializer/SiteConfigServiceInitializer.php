@@ -21,6 +21,7 @@ namespace Eye4web\SiteConfig\Initializer;
 
 use Eye4web\SiteConfig\Service\SiteConfigAwareInterface;
 use Eye4web\SiteConfig\Service\SiteConfigService;
+use Interop\Container\ContainerInterface;
 use Zend\ServiceManager\InitializerInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
 
@@ -35,5 +36,10 @@ class SiteConfigServiceInitializer implements InitializerInterface
             $siteConfigService = $serviceLocator->get(SiteConfigService::class);
             $instance->setSiteConfigService($siteConfigService);
         }
+    }
+
+    public function __invoke(ContainerInterface $container, $instance)
+    {
+        $this->initialize($instance, $container);
     }
 }

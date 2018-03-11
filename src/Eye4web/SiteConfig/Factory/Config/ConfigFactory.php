@@ -22,9 +22,15 @@ namespace Eye4web\SiteConfig\Factory\Config;
 use Eye4web\SiteConfig\Config\Config;
 use Eye4web\SiteConfig\Options\ModuleOptions;
 use Eye4web\SiteConfig\Reader\ReaderInterface;
+use Interop\Container\ContainerInterface;
 use Zend\Config\Factory;
 use Zend\ServiceManager\FactoryInterface;
+use Zend\ServiceManager\FactoryInterface as LegacyFactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
+
+if (!\interface_exists(FactoryInterface::class)) {
+    \class_alias(LegacyFactoryInterface::class, FactoryInterface::class);
+}
 
 class ConfigFactory implements FactoryInterface
 {
@@ -66,6 +72,14 @@ class ConfigFactory implements FactoryInterface
         }
 
         return new Config($data);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function __invoke(ContainerInterface $serviceLocator, $requestedName, array $options = null)
+    {
+        return $this->createService($serviceLocator);
     }
 
     public function getConfigFactory()

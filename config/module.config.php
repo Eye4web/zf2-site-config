@@ -18,11 +18,6 @@
  */
 
 return [
-    'lazy_services' => array(
-        'class_map' => array(
-            \Eye4web\SiteConfig\Service\SiteConfigService::class => \Eye4web\SiteConfig\Service\SiteConfigService::class,
-        ),
-    ),
     'service_manager' => [
         'factories' => [
             \Eye4web\SiteConfig\Config\Config::class                => \Eye4web\SiteConfig\Factory\Config\ConfigFactory::class,
@@ -34,11 +29,6 @@ return [
         'initializers' => [
             \Eye4web\SiteConfig\Initializer\SiteConfigServiceInitializer::class,
         ],
-        'delegators' => array(
-            \Eye4web\SiteConfig\Service\SiteConfigService::class => array(
-                'LazyServiceFactory'
-            ),
-        ),
     ],
     'view_helpers' => [
         'factories' => [

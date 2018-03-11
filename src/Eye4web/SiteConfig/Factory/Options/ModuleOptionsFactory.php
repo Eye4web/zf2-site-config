@@ -20,8 +20,14 @@
 namespace Eye4web\SiteConfig\Factory\Options;
 
 use Eye4web\SiteConfig\Options\ModuleOptions;
+use Interop\Container\ContainerInterface;
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
+use Zend\ServiceManager\FactoryInterface as LegacyFactoryInterface;
+
+if (!\interface_exists(FactoryInterface::class)) {
+    \class_alias(LegacyFactoryInterface::class, FactoryInterface::class);
+}
 
 class ModuleOptionsFactory implements FactoryInterface
 {
@@ -42,5 +48,13 @@ class ModuleOptionsFactory implements FactoryInterface
         $service = new ModuleOptions($moduleConfig);
 
         return $service;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function __invoke(ContainerInterface $serviceLocator, $requestedName, array $options = null)
+    {
+        return $this->createService($serviceLocator);
     }
 }
