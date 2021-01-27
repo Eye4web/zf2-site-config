@@ -19,7 +19,7 @@
 
 namespace Eye4web\SiteConfig\Reader;
 
-use Doctrine\Common\Persistence\ObjectManager;
+use Doctrine\Persistence\ObjectManager;
 use Eye4web\SiteConfig\Options\ModuleOptionsInterface;
 
 class DoctrineORMReader implements ReaderInterface
@@ -38,7 +38,7 @@ class DoctrineORMReader implements ReaderInterface
      * @param ObjectManager          $objectManager
      * @param ModuleOptionsInterface $options
      */
-    public function __construct(ObjectManager $objectManager, ModuleOptionsInterface $options)
+    public function __construct(\Doctrine\Persistence\ObjectManager $objectManager, ModuleOptionsInterface $options)
     {
         $this->objectManager = $objectManager;
         $this->options = $options;
