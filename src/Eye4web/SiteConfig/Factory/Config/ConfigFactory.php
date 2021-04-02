@@ -77,7 +77,7 @@ class ConfigFactory implements FactoryInterface
     /**
      * {@inheritdoc}
      */
-    public function __invoke(ContainerInterface $serviceLocator, $requestedName, array $options = null)
+    public function __invoke(\Psr\Container\ContainerInterface $serviceLocator, $requestedName, array $options = null)
     {
         return $this->createService($serviceLocator);
     }
