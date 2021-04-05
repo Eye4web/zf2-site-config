@@ -59,9 +59,12 @@ return [
         ],
         'migrations_configuration' => [
             'orm_default' => [
-                'directory' => 'module/Application/src/Application/Migration',
-                'namespace' => 'Application\Migration',
-                'table' => 'migrations',
+                'migrations_paths' => ['Application\Migrations' => 'module/Application/src/Application/Migration'],
+                'table_storage' => [
+                    'table_name' => 'migrations',
+                    'version_column_name' => 'version',
+                    'version_column_length' => 1024,
+                ],
             ],
         ],
     ],
