@@ -24,7 +24,6 @@ return [
             \Eye4web\SiteConfig\Options\ModuleOptions::class        => \Eye4web\SiteConfig\Factory\Options\ModuleOptionsFactory::class,
             \Eye4web\SiteConfig\Reader\DoctrineORMReader::class     => \Eye4web\SiteConfig\Factory\Reader\DoctrineORMReaderFactory::class,
             \Eye4web\SiteConfig\Service\SiteConfigService::class    => \Eye4web\SiteConfig\Factory\Service\SiteConfigServiceFactory::class,
-            'LazyServiceFactory' => 'Zend\ServiceManager\Proxy\LazyServiceFactoryFactory',
         ],
         'initializers' => [
             \Eye4web\SiteConfig\Initializer\SiteConfigServiceInitializer::class,
