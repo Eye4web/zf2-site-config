@@ -59,9 +59,9 @@ return [
         ],
         'migrations_configuration' => [
             'orm_default' => [
-                'migrations_paths' => ['Application\MigrationV3' => 'module/Application/src/Application/MigrationV3'],
+                'migrations_paths' => ['Application\Migration' => 'module/Application/src/Application/Migration'],
                 'table_storage' => [
-                    'table_name' => 'migrations_v3',
+                    'table_name' => 'migrations',
                     'version_column_name' => 'version',
                     'version_column_length' => 1024,
                 ],
