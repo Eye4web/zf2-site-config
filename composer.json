@@ -20,9 +20,9 @@
         }
     },
     "require": {
-        "php": ">=5.5",
-        "zendframework/zend-config": "~2.3|~3.0",
-        "zendframework/zend-servicemanager": "~2.3|~3.0",
+        "php": "^8.1",
+        "laminas/laminas-config": "~2.3|~3.0",
+        "laminas/laminas-servicemanager": "~2.3|~3.0",
         "ocramius/proxy-manager": "~1.0|~2.0"
     },
     "autoload": {
@@ -34,9 +34,9 @@
         "container-interop/container-interop": "^1.1",
         "phpunit/phpunit" : "4.*",
         "squizlabs/php_codesniffer" : "1.5.*",
-        "zendframework/zend-captcha" : "~2.1",
+        "laminas/laminas-captcha" : "~2.1",
         "codeclimate/php-test-reporter": "dev-master",
-        "zendframework/zendframework": "~2.3",
+        "laminas/laminasframework": "~2.3",
         "ramsey/uuid": "2.7.3"
     }
 }
