@@ -49,7 +49,7 @@ return [
         'driver' => [
             'eye4web_siteconfig_driver' => array(
                 'class' => 'Doctrine\ORM\Mapping\Driver\XmlDriver',
-                'paths' => __DIR__.'/xml/eye4websiteconfig',
+                'paths' => [__DIR__.'/xml/eye4websiteconfig'],
             ),
             'orm_default' => [
                 'drivers' => [
