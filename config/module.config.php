@@ -24,7 +24,6 @@ return [
             \Eye4web\SiteConfig\Options\ModuleOptions::class        => \Eye4web\SiteConfig\Factory\Options\ModuleOptionsFactory::class,
             \Eye4web\SiteConfig\Reader\DoctrineORMReader::class     => \Eye4web\SiteConfig\Factory\Reader\DoctrineORMReaderFactory::class,
             \Eye4web\SiteConfig\Service\SiteConfigService::class    => \Eye4web\SiteConfig\Factory\Service\SiteConfigServiceFactory::class,
-            'LazyServiceFactory' => 'Zend\ServiceManager\Proxy\LazyServiceFactoryFactory',
         ],
         'initializers' => [
             \Eye4web\SiteConfig\Initializer\SiteConfigServiceInitializer::class,
@@ -50,19 +49,12 @@ return [
         'driver' => [
             'eye4web_siteconfig_driver' => array(
                 'class' => 'Doctrine\ORM\Mapping\Driver\XmlDriver',
-                'paths' => __DIR__.'/xml/eye4websiteconfig',
+                'paths' => [__DIR__.'/xml/eye4websiteconfig'],
             ),
             'orm_default' => [
                 'drivers' => [
                     'Eye4web\SiteConfig' => 'eye4web_siteconfig_driver',
                 ],
-            ],
-        ],
-        'migrations_configuration' => [
-            'orm_default' => [
-                'directory' => 'module/Application/src/Application/Migration',
-                'namespace' => 'Application\Migration',
-                'table' => 'migrations',
             ],
         ],
     ],

@@ -38,7 +38,7 @@ class SiteConfigServiceInitializer implements InitializerInterface
         }
     }
 
-    public function __invoke(ContainerInterface $container, $instance)
+    public function __invoke(\Psr\Container\ContainerInterface $container, $instance)
     {
         $this->initialize($instance, $container);
     }

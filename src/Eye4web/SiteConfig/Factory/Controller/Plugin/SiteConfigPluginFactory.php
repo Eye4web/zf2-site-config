@@ -40,10 +40,6 @@ class SiteConfigPluginFactory implements FactoryInterface
      */
     public function createService(ServiceLocatorInterface $serviceLocator)
     {
-        if ($serviceLocator instanceof PluginManager) {
-            $serviceLocator = $serviceLocator->getServiceLocator();
-        }
-
         $siteConfigService = $serviceLocator->get(SiteConfigService::Class);
 
         return new SiteConfigPlugin($siteConfigService);
@@ -52,7 +48,7 @@ class SiteConfigPluginFactory implements FactoryInterface
     /**
      * {@inheritdoc}
      */
-    public function __invoke(ContainerInterface $serviceLocator, $requestedName, array $options = null)
+    public function __invoke(\Psr\Container\ContainerInterface $serviceLocator, $requestedName, array $options = null)
     {
         return $this->createService($serviceLocator);
     }
