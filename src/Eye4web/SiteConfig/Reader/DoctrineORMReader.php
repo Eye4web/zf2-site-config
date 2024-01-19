@@ -19,6 +19,7 @@
 
 namespace Eye4web\SiteConfig\Reader;
 
+use Doctrine\DBAL\Exception;
 use Doctrine\Persistence\ObjectManager;
 use Eye4web\SiteConfig\Options\ModuleOptionsInterface;
 
@@ -49,15 +50,21 @@ class DoctrineORMReader implements ReaderInterface
      */
     public function getArray()
     {
-        $entityClass = $this->options->getDoctrineORMEntityClass();
-        $dbConfigs = $this->objectManager->getRepository($entityClass)->findAll();
+        try {
+            $entityClass = $this->options->getDoctrineORMEntityClass();
+            $dbConfigs = $this->objectManager->getRepository($entityClass)->findAll();
 
-        $configs = [];
-        /** @var \Eye4web\SiteConfig\Entity\SiteConfig $config */
-        foreach ($dbConfigs as $config) {
-            $configs[$config->getKey()] = $config->getValue();
+            $configs = [];
+            /** @var \Eye4web\SiteConfig\Entity\SiteConfig $config */
+            foreach ($dbConfigs as $config) {
+                $configs[$config->getKey()] = $config->getValue();
+            }
+
+            return $configs;
+        } catch(\PDOException $e) {
+            return [];
+        } catch (Exception $e) {
+            return [];
         }
-
-        return $configs;
     }
 }
